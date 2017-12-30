@@ -1,0 +1,90 @@
+Script started on Wed 01 Nov 2017 03:34:31 PM EDT
+sfenton@pe07:~/cs630/hw3$ sdvsdvsdvsd[K[K[K[K[K[K[K[K[K[K[Kddd[K[K[Ksqlplus sfgenton[K[K[K[K[K[Kenton/sfenton@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Nov 1 15:35:09 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Nov 01 2017 15:34:52 -04:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> set echo on
+SQL> @porlbem      roblem1.sql
+SQL> --Parts supplied by all suplliers
+SQL> SELECT p.pid, p.pname, p.color
+  2  FROM Parts p
+  3  WHERE NOT EXISTS(
+  4  	     (SELECT s.sid FROM Suppliers s)
+  5  	     MINUS
+  6  	     (SELECT c.sid FROM Catalog c
+  7  	     WHERE c.pid=p.pid));
+
+       PID PNAME				    COLOR
+---------- ---------------------------------------- ---------------
+	 8 Fire Hydrant Cap			    Red
+
+SQL> 
+SQL> --Parts supllied by all suplliers
+SQL> SELECT p.pid, p.pname, p.color
+  2  FROM Parts p
+  3  Where NOT EXISTS(
+  4  	     (SELECT s.sid FROM Suppliers s
+  5  	     WHERE p.pname LIKE 'a%')
+  6  	     MINUS
+  7  	     (SELECT c.sid FROM Catalog c
+  8  	     WHERE c.pid=p.pid));
+
+       PID PNAME				    COLOR
+---------- ---------------------------------------- ---------------
+	 9 7 Segment Display			    Green
+	 3 Acme Widget Washer			    Red
+	 4 Acme Widget Washer			    Silver
+	 6 Anti-Gravity Turbine Generator	    Cyan
+	 7 Anti-Gravity Turbine Generator	    Magenta
+	 8 Fire Hydrant Cap			    Red
+	 5 I Brake for Crop Circles Sticker	    Translucent
+	 1 Left Handed Bacon Stretcher Cover	    Red
+	 2 Smoke Shifter End			    Black
+
+9 rows selected.
+
+SQL> 
+SQL> --Find employees certified for all aircraft of crusing
+SQL> --range under 2000
+SQL> SELECT e.eid, e.salary
+  2  FROM employees e
+  3  WHERE NOT EXISTS(
+  4  	     (SELECT a.aid FROM aircraft a
+  5  	     WHERE a.cruisingrange < 2000)
+  6  	     MINUS
+  7  	     (SELECT c.eid FROM Certified c
+  8  	     WHERE c.eid=e.eid));
+
+no rows selected
+
+SQL> 
+SQL> --Find max salary.
+SQL> SELECT e.eid, MAX(e.salary)
+  2  FROM employees e
+  3  WHERE NOT EXISTS(
+  4  	   (SELECT a.aid FROM aircraft a
+  5  	    WHERE a.cruisingrange < 2000)
+  6  	    MINUS
+  7  	    (SELECT c.eid FROM Certified c
+  8  	    WHERE c.eid=e.eid))
+  9  GROUP BY e.eid;
+
+no rows selected
+
+SQL> --HAVING MAX(e.salary);
+SQL> 
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw3$ exit
+exit
+
+Script done on Wed 01 Nov 2017 03:35:22 PM EDT

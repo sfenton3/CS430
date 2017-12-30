@@ -1,0 +1,52 @@
+Script started on Wed 01 Nov 2017 04:58:55 PM EDT
+sfenton@pe07:~/cs630/hw3$ sqlplus sfenton/sfeno[Kton@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Nov 1 16:59:10 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Nov 01 2017 16:59:20 -04:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> set echo on
+SQL> @problem6.          DROP VIEW manager       M, anagerA Summary
+  2  ;
+
+View dropped.
+
+SQL> @problem6.sql
+SQL> create view ManagerSummary (DeptName, MgrID, MgrName, MgrSalary, EmpCount)
+  2  	     AS SELECT d.dname, d.managerid, e.ename, e.salary, COUNT(e.eid)
+  3  	     FROM dept d, works w, emp e
+  4  	     WHERE e.eid=w.eid AND d.did=w.did
+  5  	     GROUP BY d.dname, d.managerid, e.ename, e.salary;
+
+View created.
+
+SQL> 
+SQL> @queryview1.sql
+SQL> --Query View 1
+SQL> SELECT DISTINCT m.MgrSalary
+  2  	     FROM ManagerSummary m
+  3  	     WHERE m.DeptName='Sales';
+
+no rows selected
+
+SQL> 
+SQL> @queryview2.sql
+SQL> --Query View 2
+SQL> SELECT m1.MgrName
+  2  	     FROM ManagerSummary m1, ManagerSummary m2
+  3  	     WHERE m1.EmpCount > m2.EmpCount;
+
+no rows selected
+
+SQL> 
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw3$ exit
+

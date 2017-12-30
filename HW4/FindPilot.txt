@@ -1,0 +1,58 @@
+Script started on Sun 26 Nov 2017 04:55:36 PM EST
+sfenton@itserver6:~/cs630/hw4$ java -classpath ojdbc6.jar;. JdbcCheckup[K[K[K[K[K[K[K[K[K[K[K[K[K[K:. FindPilot
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: sfenton
+password: sfenton
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+Origin:Los-Angeles
+Destination:Honoli ulu
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+
+Flight: from Los-Angeles to Honolulu, distance 2551
+Pilot chosen: Michael Miller, salary 99890
+Aircraft chosen: Boeing 757-300, cruisingrange 4010
+
+sfenton@itserver6:~/cs630/hw4$ java -classpath ojdbc6.jar:. FindPilot
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: sfenton
+password: sfenton
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+Origin:Los-Angeles
+Destination:Sydney
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+
+Flight: from Los-Angeles to Sydney, distance 7487
+Pilot chosen: Karen Scott, salary 205187
+Aircraft chosen: Boeing 747-400, cruisingrange 8430
+
+sfenton@itserver6:~/cs630/hw4$ java -classpath ojdbc6.jar:. FindPilot
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: sfenton
+password: sfenton
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+Origin:Madison
+Destination:Chicago
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+
+Flight: from Madison to Chicago, distance 84
+Pilot chosen: Milo Brooks, salary 20
+Aircraft chosen: Piper Archer III, cruisingrange 520
+sfenton@itserver6:~/cs630/hw4$ exit
+exit
+
+Script done on Sun 26 Nov 2017 04:57:53 PM EST

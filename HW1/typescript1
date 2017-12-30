@@ -1,0 +1,29 @@
+Script started on Mon 11 Sep 2017 02:28:46 AM EDT
+sfenton@pe07:~/cs630/hw1$ exitquitsqlplus sfenton/sfenton@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Mon Sep 11 02:28:49 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Mon Sep 11 2017 02:27:25 -04:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> select * from boats;
+
+       BID BNAME		COLOR
+---------- -------------------- ----------
+       101 Interlake		blue
+       102 Interlake		red
+       103 Clipper		green
+       104 Marine		red
+
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw1$ exit
+exit
+
+Script done on Mon 11 Sep 2017 02:29:04 AM EDT

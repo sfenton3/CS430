@@ -1,0 +1,76 @@
+Script started on Sun 26 Nov 2017 08:36:01 PM EST
+sfenton@pe07:~/cs630/hw4$ ^C
+sfenton@pe07:~/cs630/hw4$ sqlplus sfenton/sfenton@//dbs3.cs.umb.edu/dbs3 < dropuserdb.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 26 20:36:23 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Sun Nov 26 2017 20:37:14 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> 
+Table dropped.
+
+SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw4$ sqlplus sfenton/sfenton@//dbs3.cs.umb.edu/dbs3 < dropuserdb.sql[1Puserdb.sql[1Puserdb.sql[1Puserdb.sql[1Puserdb.sqlcuserdb.sqlruserdb.sqleuserdb.sqlauserdb.sqltuserdb.sqleuserdb.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 26 20:36:31 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Sun Nov 26 2017 20:38:06 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL>   2  
+Table created.
+
+SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+sfenton@pe07:~/cs630/hw4$ java -cp ojdbc6.jar:. EmailList
+Please enter information for connection to the database
+Using Oracle (o) or MySql (m)? o
+Oracle username: sfenton
+Oracle password: sfenton
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+To add a member to the email list, enter name and email as follows:
+Enter firstName: Sue
+Enter lastName: Wong
+Enter email: swong@gmail.com
+New user Sue is now registered.
+
+sfenton@pe07:~/cs630/hw4$ java -cp ojdbc6.jar:. EmailList[K[K[K[K[K[K[K[K[Ke[KEditUser
+Please enter information for connection to the database
+Using Oracle (o) or MySql (m)? o
+Oracle username: sfenton
+Oracle password: sfenton
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+To edit a member of the email list, enter email as follows:
+Enter email: swong@gmail.com
+Change firstName(Sue): Susan
+Change lastName(Wong): Wong
+Name Changed to: Susan Wong
+sfenton@pe07:~/cs630/hw4$ exit
+exit
+
+Script done on Sun 26 Nov 2017 08:38:30 PM EST

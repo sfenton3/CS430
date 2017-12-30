@@ -1,0 +1,180 @@
+Script started on Wed 01 Nov 2017 03:58:24 PM EDT
+sfenton@pe07:~/cs630/hw3$ sql[K[K[K
+sfenton@pe07:~/cs630/hw3$ sqlplus sfenton/senton[K[K[K[K[Kfenton@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Nov 1 15:58:50 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Nov 01 2017 15:59:21 -04:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> set echo on
+SQL> @problem2.sql
+SQL> --Problem 6 of Chapter 4
+SQL> SELECT gl.account_number, account_description
+  2  FROM general_ledger_accounts gl LEFT JOIN invoice_line_items li
+  3    ON gl.account_number = li.account_number
+  4  WHERE li.account_number IS NULL
+  5  ORDER BY gl.account_number;
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   100 Cash
+	   110 Accounts Receivable
+	   150 Furniture
+	   160 Computer Equipment
+	   162 Capitalized Lease
+	   167 Software
+	   170 Other Equipment
+	   181 Book Development
+	   200 Accounts Payable
+	   205 Royalties Payable
+	   230 Sales Taxes Payable
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   234 Medicare Taxes Payable
+	   237 State Payroll Taxes Payable
+	   238 Employee FICA Taxes Payable
+	   239 Employer FICA Taxes Payable
+	   241 Employer FUTA Taxes Payable
+	   242 Employee SDI Taxes Payable
+	   243 Employer UCI Taxes Payable
+	   251 IBM Credit Corporation Payable
+	   280 Capital Stock
+	   290 Retained Earnings
+	   300 Retail Sales
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   301 College Sales
+	   302 Trade Sales
+	   306 Consignment Sales
+	   310 Compositing Revenue
+	   394 Book Club Royalties
+	   400 Book Printing Costs
+	   403 Book Production Costs
+	   500 Salaries and Wages
+	   505 FICA
+	   506 FUTA
+	   507 UCI
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   508 Medicare
+	   521 Utilities
+	   528 IBM Lease
+	   532 Equipment Rental
+	   550 Packaging Materials
+	   551 Business Forms
+	   555 Collection Agency Fees
+	   556 Credit Card Handling
+	   565 Bank Fees
+	   568 Auto License Fee
+	   576 PC Software
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   582 Travel and Accomodations
+	   590 Business Insurance
+	   610 Charitable Contributions
+	   611 Profit Sharing Contributions
+	   620 Interest Paid to Banks
+	   621 Other Interest
+	   630 Federal Corporation Income Taxes
+	   631 State Corporation Income Taxes
+	   632 Sales Tax
+
+53 rows selected.
+
+SQL> 
+SQL> --Problem 3 of Chapter 6
+SQL> SELECT account_number, account_description
+  2  FROM general_ledger_accounts
+  3  WHERE NOT EXISTS
+  4  	 (SELECT *
+  5  	  FROM invoice_line_items
+  6  	  WHERE invoice_line_items.account_number = general_ledger_accounts.account_number)
+  7  ORDER BY account_number;
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   100 Cash
+	   110 Accounts Receivable
+	   150 Furniture
+	   160 Computer Equipment
+	   162 Capitalized Lease
+	   167 Software
+	   170 Other Equipment
+	   181 Book Development
+	   200 Accounts Payable
+	   205 Royalties Payable
+	   230 Sales Taxes Payable
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   234 Medicare Taxes Payable
+	   237 State Payroll Taxes Payable
+	   238 Employee FICA Taxes Payable
+	   239 Employer FICA Taxes Payable
+	   241 Employer FUTA Taxes Payable
+	   242 Employee SDI Taxes Payable
+	   243 Employer UCI Taxes Payable
+	   251 IBM Credit Corporation Payable
+	   280 Capital Stock
+	   290 Retained Earnings
+	   300 Retail Sales
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   301 College Sales
+	   302 Trade Sales
+	   306 Consignment Sales
+	   310 Compositing Revenue
+	   394 Book Club Royalties
+	   400 Book Printing Costs
+	   403 Book Production Costs
+	   500 Salaries and Wages
+	   505 FICA
+	   506 FUTA
+	   507 UCI
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   508 Medicare
+	   521 Utilities
+	   528 IBM Lease
+	   532 Equipment Rental
+	   550 Packaging Materials
+	   551 Business Forms
+	   555 Collection Agency Fees
+	   556 Credit Card Handling
+	   565 Bank Fees
+	   568 Auto License Fee
+	   576 PC Software
+
+ACCOUNT_NUMBER ACCOUNT_DESCRIPTION
+-------------- --------------------------------------------------
+	   582 Travel and Accomodations
+	   590 Business Insurance
+	   610 Charitable Contributions
+	   611 Profit Sharing Contributions
+	   620 Interest Paid to Banks
+	   621 Other Interest
+	   630 Federal Corporation Income Taxes
+	   631 State Corporation Income Taxes
+	   632 Sales Tax
+
+53 rows selected.
+
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw3$ exit
+exit
+
+Script done on Wed 01 Nov 2017 03:59:13 PM EDT

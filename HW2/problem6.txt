@@ -1,0 +1,72 @@
+part a.
+------------------------------------
+*empty
+
+
+Part b.
+-------------------------------------
+major   		 AVG(s.age)
+
+Accounting     		 19.0000
+Animal Science 		 18.0000
+Architecture   		 22.0000
+Civil Engineering        21.0000
+Computer Engineering   	 18.5000
+Computer Science       	 18.5000
+Economics      		 20.0000
+Education     		 21.0000
+Electrical Engineering   17.0000
+English 		21.0000
+Finance			18.0000
+History 		20.0000
+Kinesiology     	19.0000
+Law   			20.0000
+Mechanical Engineering  19.0000
+Psychology      	19.0000
+Veterinary Medicine     21.0000
+
+
+Part c.
+---------------------------------
+room   		 COUNT(f.deptid)
+
+        		1
+1320 DCL        	3
+20 AVW  		4
+Q3     			2
+R12    		        2
+R128    		5
+R15    	          	5
+
+
+part d.
+---------------------------------
+room    	COUNT(f.deptid)
+
+1320 DCL        3
+20 AVW  	4
+Q3      	2
+R12     	2
+R128    	5
+R15     	5
+
+part e.
+-------------------------------------------------------------
+name   		  		major   			COUNT(s.snum)
+
+Air Quality 			Engineering Civil Engineering   1
+American Political Parties      Psychology      		1
+Communication Networks  	Computer Engineering    	1
+Data Structures 		Computer Engineering    	1
+Database Systems        	Computer Engineering    	1
+Database Systems        	Computer Science        	4
+Operating System Design 	Computer Engineering    	2
+Operating System Design 	Computer Science        	3
+Operating System Design 	Electrical Engineering  	1
+Optical Electronics     	Electrical Engineering  	1
+Organic Chemistry       	Electrical Engineering  	1
+Patent Law      		Law     			1
+Perception      		Psychology      		1
+Social Cognition        	Psychology      		1
+Urban Economics 		Economics       		1
+

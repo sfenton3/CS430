@@ -1,0 +1,41 @@
+Part 1.
+---------------------------------------
+pname
+7 Segment Display
+Acme Widget Washer
+Anti-Gravity Turbine Generator
+Fire Hydrant Cap
+I Brake for Crop Circles Sticker
+Left Handed Bacon Stretcher Cover
+Smoke Shifter End
+
+Part 4.
+----------------------------------------
+pname
+Acme Widget Washer
+Anti-Gravity Turbine Generator
+Smoke Shifter End
+
+
+Part 5.
+----------------------------------------
+sid
+1
+4
+
+Part 7.
+----------------------------------------
+sid
+1
+2
+3
+4
+
+Part 11.
+------------------------------------------------------------------------
+sname   pname   MAX(c.cost)
+Acme Widget Suppliers   Acme Widget Washer      15.30
+Acme Widget Suppliers   Fire Hydrant Cap        11.70
+Acme Widget Suppliers   Left Handed Bacon Stretcher Cover       36.10
+Perfunctory Parts       Fire Hydrant Cap        12.50
+

@@ -1,0 +1,40 @@
+1. Give an Example of a forein key contraint that involves the Dept relation. What are the options for enforcing this contraint when a user attempts to delete a Dept tuple?
+
+Example:
+CREATE TABLE works(eid INTEGER NOT NULL, did INTEGER NOT NULL, pcttime INTEGER, PRIMARY KEY (eid, did),
+UNIQUE (eid),
+FOREIGN KEY (did) REFERENCES dept)
+
+If the user is going to delete a dept tuple, then they can either delete all the works tuples that refere to it. They can not allow the deletion of the dept tuple, if some works tuples refer to it.
+
+2. Write the SQL statements required to create the preceding relations, including appropriate versions
+of all primary and foreign key integrity contraints.
+
+CREATE TABLE emp(eid INTEGER, ename CHAR(20), age INTEGER, salary REAL, PRIMARY KEY (eid))
+CREATE TABLE works(eid INTEGER, did INTEGER, pcttime INTEGER, PRIMARY KEY (eid, did), FOREGIN KEY (did) REFERENCES dept,
+FOREIGN KEY (eid) REFERENCES emp)
+CREATE TABLE dept(did INTEGER, budget REAL, managerid INTEGER, PRIMARY KEY (did), FOREIGN KEY (managerid) REFERENCES emp)
+
+3.Define a dept relation in SQL so that every department is guaranteed to have a manager.
+
+CREATE TABLE dept(did INTEGER, budget REAL, managerid INTEGER NOT NULL, FOREIGN KEY (managerid) REFERENCES empty)
+
+If we set managerid to not null, then it can never be null.
+
+4. Write an SQL statement to add John Doe as an employee with eid = 101, age = 32, and salary = 15,000.
+
+INSERT INTO emp (eid,ename,age,salary) VALUES (101,'John Doe',32,15000.00)
+
+5. Write an SQL statement to give every employee a 10 percent raise.
+
+Update emp e
+SET e.salary=e.salary + e.salary*.10
+
+6. Write an SQL statement to delete the Legal department.
+
+DELETE FROM dept d WHERE d.dname='Legal'
+
+If we have "ON DELETE CASCADE" it means that if legal is deleted, then the works record that is connected to
+dept is deleted as well.
+
+

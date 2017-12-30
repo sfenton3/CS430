@@ -1,0 +1,47 @@
+Script started on Wed 01 Nov 2017 03:39:00 PM EDT
+sfenton@pe07:~/cs630/hw3$ sqlplus sfenton/sfenton@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Nov 1 15:39:02 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Nov 01 2017 15:39:54 -04:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> set echo on
+SQL> @problem4.sql
+SQL> create table members(
+  2  	     members_id int primary key,
+  3  	     mname varchar(30) not null,
+  4  	     address varchar(30)
+  5  );
+
+Table created.
+
+SQL> create table groups(
+  2  	     groups_id int primary key,
+  3  	     gname varchar(30) not null
+  4  );
+
+Table created.
+
+SQL> create table member_of(
+  2  	     members_id int,
+  3  	     groups_id int,
+  4  	     primary key(members_id,groups_id),
+  5  	     foreign key(members_id) references members(members_id),
+  6  	     foreign key(groups_id) references groups(groups_id)
+  7  );
+
+Table created.
+
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+sfenton@pe07:~/cs630/hw3$ exit
+exit
+
+Script done on Wed 01 Nov 2017 03:39:20 PM EDT
